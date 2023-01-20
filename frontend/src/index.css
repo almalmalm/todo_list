@@ -1,0 +1,95 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+.App {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2rem;
+  margin: 0.5rem 2rem;
+  width: 100vw;
+}
+
+button {
+  padding: 0.5rem;
+  border-radius: 0.5rem;
+  cursor: pointer;
+}
+
+input,
+li span {
+  padding: 0.5rem;
+  border-radius: 0.5rem;
+  border: 1px solid #ff5c00;
+  background-color: #ffd7c0;
+  box-shadow: 0.125rem 0.125rem #ffd7c0;
+}
+
+.checked {
+  text-decoration: line-through;
+  border: 1px solid #61ff29;
+  background-color: #c4feb0;
+  box-shadow: 0.125rem 0.125rem #c4feb0;
+}
+
+.unchecked {
+  text-decoration: none;
+}
+
+li {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.5rem;
+}
+
+.buttons {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.navbar {
+  width: 100%;
+}
+
+.form {
+  display: flex;
+  gap: 1rem;
+}
+
+.add_button {
+  border: 1px solid #ff5c00;
+  background-color: #ffd7c0;
+  box-shadow: 0.125rem 0.125rem #ffd7c0;
+}
+
+.edit_button {
+  border: 1px solid #00d1ff;
+  background-color: #b5f2ff;
+  box-shadow: 0.125rem 0.125rem #b5f2ff;
+}
+
+.done_button {
+  border: 1px solid #61ff29;
+  background-color: #c4feb0;
+  box-shadow: 0.125rem 0.125rem #c4feb0;
+}
+
+.delete_button {
+  border: 1px solid #ff0404;
+  background-color: #ffa5a5;
+  box-shadow: 0.125rem 0.125rem #ffa5a5;
+}
+
+.hidden {
+  display: none;
+}
