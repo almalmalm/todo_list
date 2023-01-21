@@ -1,21 +1,7 @@
 import React from 'react';
 import AddIcon from '../assets/AddIcon.svg';
 
-const InputField = ({ todos, setTodos, text, setText }) => {
-  const addTodo = (todos, text) => {
-    const newTodo = {
-      id: new Date().toISOString(),
-      text: text,
-      completed: false,
-    };
-    if (text.trim() !== '') {
-      const updatedTodos = [...todos, newTodo];
-      setTodos(updatedTodos);
-    }
-
-    setText('');
-  };
-
+const InputField = ({ text, setText, handleSubmit }) => {
   return (
     <div className="form">
       <input
@@ -27,11 +13,11 @@ const InputField = ({ todos, setTodos, text, setText }) => {
         }}
         onKeyDown={(e) => {
           if (e.key === 'Enter') {
-            addTodo(todos, text);
+            handleSubmit();
           }
         }}
       />
-      <button onClick={() => addTodo(todos, text)} className="add_button">
+      <button onClick={handleSubmit} className="add_button">
         <img src={AddIcon} alt="The add icon" />
       </button>
     </div>

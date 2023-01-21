@@ -1,36 +1,34 @@
 import React from 'react';
 import DeleteIcon from '../assets/DeleteIcon.svg';
 import DoneIcon from '../assets/DoneIcon.svg';
-import { useState } from 'react';
+import { useDispatch } from 'react-redux';
+import { deleteAction, toggleAction } from '../redux/todoSlice';
 
-const TodoItem = ({ todo, todos, setTodos }) => {
-  const [isChecked, setIsChecked] = useState(false);
+const TodoItem = ({ id, text }) => {
+  const dispatch = useDispatch();
+
   const deleteTodo = (id) => {
-    const newTodos = todos.filter((todo) => todo.id !== id);
-    setTodos(newTodos);
+    dispatch(deleteAction({ id }));
   };
 
-  const toggleTodo = (todo) => {
-    todo.completed = !todo.completed;
-    if (todo.completed) {
-      setIsChecked(true);
-    } else {
-      setIsChecked(false);
-    }
+  const toggleTodo = (id) => {
+    dispatch(toggleAction({ id }));
   };
 
   return (
     <li>
-      <span className={isChecked ? 'checked' : 'unchecked'}>{todo.text}</span>
-
-      <div className="buttons">
-        <button className="done_button" onClick={() => toggleTodo(todo)}>
-          <img src={DoneIcon} alt="The done icon" />
-        </button>
-        <button className="delete_button" onClick={() => deleteTodo(todo.id)}>
-          <img src={DeleteIcon} alt="The delete icon" />
-        </button>
+      <div>
+        <input
+          className="checkbox"
+          type="checkbox"
+          onClick={() => toggleTodo(id)}
+        />
+        <span>{text}</span>
       </div>
+
+      <button className="delete_button" onClick={() => deleteTodo(id)}>
+        <img src={DeleteIcon} alt="The delete icon" />
+      </button>
     </li>
   );
 };
